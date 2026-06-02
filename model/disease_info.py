@@ -1,165 +1,63 @@
 """
 Treatment recommendations and disease information database.
-Referenced in Chapter 3.5 (Output and Reporting) and Chapter 4.5.
+Updated to match actual dataset classes (15 classes).
 """
 
 DISEASE_INFO = {
-    # ── APPLE ──────────────────────────────────────────────────────────
-    "Apple___Apple_scab": {
-        "display_name": "Apple Scab",
-        "crop": "Apple",
-        "severity": "Moderate",
-        "description": (
-            "Apple scab is caused by the fungus Venturia inaequalis. "
-            "It appears as olive-green to brown spots on leaves and fruit, "
-            "leading to premature leaf drop and reduced fruit quality."
-        ),
-        "symptoms": [
-            "Olive-green or brown spots on leaves",
-            "Velvety texture on lesions",
-            "Premature leaf drop",
-            "Scabby, cracked fruit surface",
-        ],
-        "treatment": [
-            "Apply fungicides (Captan or Mancozeb) at bud break",
-            "Remove and destroy infected leaves and fruit",
-            "Prune trees to improve air circulation",
-            "Use resistant apple varieties when replanting",
-        ],
-        "prevention": "Apply preventive fungicide sprays during wet spring weather.",
+
+    # ── NOT A LEAF ──────────────────────────────────────────────────
+    "Not_A_Leaf": {
+        "display_name": "Not a Leaf",
+        "crop": "Unknown",
+        "severity": "None",
+        "description": "The uploaded image does not appear to be a plant leaf. Please upload a clear photo of a leaf for accurate disease detection.",
+        "symptoms": [],
+        "treatment": ["Upload a clear, close-up photo of a plant leaf."],
+        "prevention": "Ensure the leaf fills most of the frame with good lighting.",
     },
-    "Apple___Black_rot": {
-        "display_name": "Apple Black Rot",
-        "crop": "Apple",
+
+    # ── PEPPER ──────────────────────────────────────────────────────
+    "Pepper__bell___Bacterial_spot": {
+        "display_name": "Pepper Bacterial Spot",
+        "crop": "Pepper (Bell)",
         "severity": "High",
         "description": (
-            "Black rot is caused by the fungus Botryosphaeria obtusa. "
-            "It causes leaf spots, fruit rot, and cankers on branches."
+            "Bacterial spot is caused by Xanthomonas campestris. "
+            "It is one of the most serious diseases of pepper, causing "
+            "defoliation, fruit spots, and significant yield loss."
         ),
         "symptoms": [
-            "Purple spots on leaves that enlarge with yellow halos",
-            "Black, mummified fruit",
-            "Cankers on branches with reddish-brown bark",
-        ],
-        "treatment": [
-            "Prune and destroy infected branches and mummified fruit",
-            "Apply copper-based fungicides",
-            "Maintain tree vigor through proper fertilization",
-            "Remove dead wood from the orchard",
-        ],
-        "prevention": "Sanitation is key — remove all mummified fruit before spring.",
-    },
-    "Apple___Cedar_apple_rust": {
-        "display_name": "Cedar Apple Rust",
-        "crop": "Apple",
-        "severity": "Moderate",
-        "description": (
-            "Caused by Gymnosporangium juniperi-virginianae, this fungal disease "
-            "requires both apple and cedar/juniper trees to complete its life cycle."
-        ),
-        "symptoms": [
-            "Bright orange-yellow spots on upper leaf surface",
-            "Tube-like structures on the underside of leaves",
+            "Small, water-soaked spots on leaves that turn brown",
+            "Yellow halo surrounding lesions",
+            "Raised, scab-like spots on fruit",
             "Premature defoliation in severe cases",
         ],
         "treatment": [
-            "Apply myclobutanil or mancozeb fungicides at pink bud stage",
-            "Remove nearby cedar or juniper trees if possible",
-            "Plant rust-resistant apple varieties",
+            "Apply copper-based bactericides at first sign of disease",
+            "Remove and destroy infected plant material",
+            "Avoid overhead irrigation to reduce leaf wetness",
+            "Use disease-free certified transplants",
         ],
-        "prevention": "Spray fungicides from pink bud through petal fall.",
+        "prevention": "Use resistant varieties and practice 2-year crop rotation with non-host crops.",
     },
-    "Apple___healthy": {
-        "display_name": "Healthy Apple",
-        "crop": "Apple",
+    "Pepper__bell___healthy": {
+        "display_name": "Healthy Pepper",
+        "crop": "Pepper (Bell)",
         "severity": "None",
-        "description": "The apple plant appears healthy with no signs of disease.",
+        "description": "The pepper plant appears healthy with no signs of disease.",
         "symptoms": [],
-        "treatment": ["Continue regular monitoring and good agricultural practices"],
-        "prevention": "Maintain proper irrigation, fertilization, and pruning schedules.",
+        "treatment": ["Continue regular monitoring and good agricultural practices."],
+        "prevention": "Maintain proper irrigation, fertilization, and spacing.",
     },
 
-    # ── CORN ───────────────────────────────────────────────────────────
-    "Corn___Cercospora_leaf_spot": {
-        "display_name": "Corn Gray Leaf Spot (Cercospora)",
-        "crop": "Corn",
-        "severity": "High",
-        "description": (
-            "Gray leaf spot, caused by Cercospora zeae-maydis, is one of the most "
-            "significant foliar diseases of corn worldwide."
-        ),
-        "symptoms": [
-            "Rectangular, tan to gray lesions parallel to leaf veins",
-            "Lesions surrounded by yellow halos",
-            "Premature death of leaves in severe cases",
-        ],
-        "treatment": [
-            "Apply strobilurin or triazole fungicides at tasseling",
-            "Plant resistant hybrids",
-            "Rotate crops with non-host plants",
-            "Reduce crop residue through tillage",
-        ],
-        "prevention": "Crop rotation and resistant varieties are the most effective strategies.",
-    },
-    "Corn___Common_rust": {
-        "display_name": "Corn Common Rust",
-        "crop": "Corn",
-        "severity": "Moderate",
-        "description": (
-            "Common rust is caused by Puccinia sorghi. It is most damaging "
-            "when it occurs early in the season on susceptible hybrids."
-        ),
-        "symptoms": [
-            "Small, circular to elongated cinnamon-brown pustules on both leaf surfaces",
-            "Pustules turn dark brown/black as the season progresses",
-            "Severe infections cause yellowing and death of leaves",
-        ],
-        "treatment": [
-            "Apply fungicides (triazoles) if infection is severe before tasseling",
-            "Plant resistant corn hybrids",
-            "Scout fields regularly during the growing season",
-        ],
-        "prevention": "Use certified rust-resistant hybrid seeds.",
-    },
-    "Corn___Northern_Leaf_Blight": {
-        "display_name": "Northern Corn Leaf Blight",
-        "crop": "Corn",
-        "severity": "High",
-        "description": (
-            "Caused by Exserohilum turcicum, Northern Leaf Blight can cause "
-            "significant yield losses, especially when it occurs before silking."
-        ),
-        "symptoms": [
-            "Long, elliptical, grayish-green to tan lesions (1–6 inches)",
-            "Lesions may have wavy margins",
-            "Entire leaves may die in severe infections",
-        ],
-        "treatment": [
-            "Apply fungicides at early disease onset (before tasseling)",
-            "Use resistant hybrids with Ht genes",
-            "Practice crop rotation",
-            "Bury or incorporate crop residue",
-        ],
-        "prevention": "Plant resistant varieties and rotate with soybeans or other non-hosts.",
-    },
-    "Corn___healthy": {
-        "display_name": "Healthy Corn",
-        "crop": "Corn",
-        "severity": "None",
-        "description": "The corn plant appears healthy with no signs of disease.",
-        "symptoms": [],
-        "treatment": ["Continue regular monitoring and good agricultural practices"],
-        "prevention": "Maintain proper spacing, irrigation, and fertilization.",
-    },
-
-    # ── POTATO ─────────────────────────────────────────────────────────
+    # ── POTATO ──────────────────────────────────────────────────────
     "Potato___Early_blight": {
         "display_name": "Potato Early Blight",
         "crop": "Potato",
         "severity": "Moderate",
         "description": (
             "Early blight is caused by Alternaria solani. It typically affects "
-            "older leaves first and can cause significant defoliation."
+            "older leaves first and can cause significant defoliation and yield loss."
         ),
         "symptoms": [
             "Dark brown spots with concentric rings (target-board pattern)",
@@ -185,7 +83,7 @@ DISEASE_INFO = {
         ),
         "symptoms": [
             "Water-soaked, pale green lesions on leaves",
-            "White, fuzzy mold on the underside of leaves in humid conditions",
+            "White, fuzzy mold on underside of leaves in humid conditions",
             "Lesions turn brown/black rapidly",
             "Brown rot in tubers",
         ],
@@ -203,12 +101,12 @@ DISEASE_INFO = {
         "severity": "None",
         "description": "The potato plant appears healthy with no signs of disease.",
         "symptoms": [],
-        "treatment": ["Continue regular monitoring and good agricultural practices"],
+        "treatment": ["Continue regular monitoring and good agricultural practices."],
         "prevention": "Use certified seed potatoes and practice 3-year crop rotation.",
     },
 
-    # ── TOMATO ─────────────────────────────────────────────────────────
-    "Tomato___Bacterial_spot": {
+    # ── TOMATO ──────────────────────────────────────────────────────
+    "Tomato_Bacterial_spot": {
         "display_name": "Tomato Bacterial Spot",
         "crop": "Tomato",
         "severity": "High",
@@ -230,7 +128,7 @@ DISEASE_INFO = {
         ],
         "prevention": "Use resistant varieties and copper sprays as a preventive measure.",
     },
-    "Tomato___Early_blight": {
+    "Tomato_Early_blight": {
         "display_name": "Tomato Early Blight",
         "crop": "Tomato",
         "severity": "Moderate",
@@ -251,7 +149,7 @@ DISEASE_INFO = {
         ],
         "prevention": "Rotate crops and use resistant tomato varieties.",
     },
-    "Tomato___Late_blight": {
+    "Tomato_Late_blight": {
         "display_name": "Tomato Late Blight",
         "crop": "Tomato",
         "severity": "Critical",
@@ -272,12 +170,12 @@ DISEASE_INFO = {
         ],
         "prevention": "Monitor weather forecasts and apply preventive sprays during cool, wet periods.",
     },
-    "Tomato___Leaf_Mold": {
+    "Tomato_Leaf_Mold": {
         "display_name": "Tomato Leaf Mold",
         "crop": "Tomato",
         "severity": "Moderate",
         "description": (
-            "Leaf mold is caused by Passalora fulva (formerly Fulvia fulva). "
+            "Leaf mold is caused by Passalora fulva. "
             "It is most common in greenhouse tomatoes under high humidity."
         ),
         "symptoms": [
@@ -292,7 +190,7 @@ DISEASE_INFO = {
         ],
         "prevention": "Maintain relative humidity below 85% and ensure good air circulation.",
     },
-    "Tomato___Septoria_leaf_spot": {
+    "Tomato_Septoria_leaf_spot": {
         "display_name": "Tomato Septoria Leaf Spot",
         "crop": "Tomato",
         "severity": "Moderate",
@@ -302,7 +200,7 @@ DISEASE_INFO = {
         ),
         "symptoms": [
             "Numerous small, circular spots with dark borders and gray centers",
-            "Tiny black dots (pycnidia) visible in the center of spots",
+            "Tiny black dots (pycnidia) visible in center of spots",
             "Yellowing and dropping of infected leaves",
         ],
         "treatment": [
@@ -313,7 +211,7 @@ DISEASE_INFO = {
         ],
         "prevention": "Practice crop rotation and use disease-free transplants.",
     },
-    "Tomato___Spider_mites": {
+    "Tomato_Spider_mites_Two_spotted_spider_mite": {
         "display_name": "Tomato Spider Mites (Two-spotted)",
         "crop": "Tomato",
         "severity": "Moderate",
@@ -330,12 +228,12 @@ DISEASE_INFO = {
         "treatment": [
             "Apply miticides (abamectin, bifenazate) or insecticidal soap",
             "Spray the underside of leaves thoroughly",
-            "Introduce predatory mites (Phytoseiulus persimilis) for biological control",
+            "Introduce predatory mites for biological control",
             "Increase humidity — mites thrive in dry conditions",
         ],
         "prevention": "Avoid water stress and dusty conditions that favor mite outbreaks.",
     },
-    "Tomato___Target_Spot": {
+    "Tomato__Target_Spot": {
         "display_name": "Tomato Target Spot",
         "crop": "Tomato",
         "severity": "Moderate",
@@ -355,7 +253,7 @@ DISEASE_INFO = {
         ],
         "prevention": "Use resistant varieties and practice crop rotation.",
     },
-    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "Tomato__Tomato_YellowLeaf__Curl_Virus": {
         "display_name": "Tomato Yellow Leaf Curl Virus (TYLCV)",
         "crop": "Tomato",
         "severity": "Critical",
@@ -370,14 +268,14 @@ DISEASE_INFO = {
             "Small, crumpled leaves",
         ],
         "treatment": [
-            "No cure exists — remove and destroy infected plants immediately",
+            "No cure — remove and destroy infected plants immediately",
             "Control whitefly populations with insecticides (imidacloprid)",
             "Use yellow sticky traps to monitor whitefly populations",
             "Apply reflective mulches to repel whiteflies",
         ],
         "prevention": "Plant TYLCV-resistant varieties and use insect-proof nets in nurseries.",
     },
-    "Tomato___Tomato_mosaic_virus": {
+    "Tomato__Tomato_mosaic_virus": {
         "display_name": "Tomato Mosaic Virus (ToMV)",
         "crop": "Tomato",
         "severity": "High",
@@ -397,15 +295,6 @@ DISEASE_INFO = {
             "Wash hands thoroughly before handling plants",
         ],
         "prevention": "Use virus-free certified seeds and resistant varieties.",
-    },
-    "Tomato___healthy": {
-        "display_name": "Healthy Tomato",
-        "crop": "Tomato",
-        "severity": "None",
-        "description": "The tomato plant appears healthy with no signs of disease.",
-        "symptoms": [],
-        "treatment": ["Continue regular monitoring and good agricultural practices"],
-        "prevention": "Maintain proper irrigation, staking, and fertilization schedules.",
     },
 }
 

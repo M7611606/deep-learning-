@@ -296,11 +296,10 @@ def load_model():
 with st.sidebar:
     st.markdown("## 🌿 Plant Disease AI")
     st.markdown("---")
-    st.markdown("**AI-powered detection** using a CNN trained on 16,000 leaf images.")
+    st.markdown("**AI-powered detection** using a CNN trained on 19,000+ leaf images.")
     st.markdown("""
 <div class="crop-grid">
-  <span class="crop-badge">🍎 Apple</span>
-  <span class="crop-badge">🌽 Corn</span>
+  <span class="crop-badge">🌶️ Pepper</span>
   <span class="crop-badge">🥔 Potato</span>
   <span class="crop-badge">🍅 Tomato</span>
 </div>
@@ -308,10 +307,10 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**Model Performance**")
     for label, val, color in [
-        ("Accuracy","94.5%","#4caf50"),
-        ("Precision","92.0%","#2196f3"),
-        ("Recall","91.5%","#ff9800"),
-        ("F1-Score","91.7%","#9c27b0"),
+        ("Accuracy","~88%","#4caf50"),
+        ("Precision","~87%","#2196f3"),
+        ("Recall","~86%","#ff9800"),
+        ("F1-Score","~86%","#9c27b0"),
     ]:
         st.markdown(
             f"<div style='display:flex;justify-content:space-between;padding:5px 0;"
@@ -345,13 +344,13 @@ st.markdown("""
 <div class="hero">
   <div class="hero-badge">🤖 AI-Powered &nbsp;·&nbsp; CNN Model &nbsp;·&nbsp; Real-Time Diagnosis</div>
   <h1>🌿 Plant Disease Detection System</h1>
-  <p>Upload a leaf photo and get an instant AI diagnosis with treatment recommendations, confidence scores, and prevention advice — powered by a deep CNN trained on 16,000 images.</p>
+  <p>Upload a leaf photo and get an instant AI diagnosis with treatment recommendations, confidence scores, and prevention advice — powered by a deep CNN trained on 19,000+ images.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-value">21</span><span class="hero-stat-label">Disease Classes</span></div>
-    <div class="hero-stat"><span class="hero-stat-value">16K</span><span class="hero-stat-label">Training Images</span></div>
-    <div class="hero-stat"><span class="hero-stat-value">94.5%</span><span class="hero-stat-label">Accuracy</span></div>
-    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">Crop Types</span></div>
-    <div class="hero-stat"><span class="hero-stat-value">5</span><span class="hero-stat-label">CNN Layers</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">15</span><span class="hero-stat-label">Disease Classes</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">19K+</span><span class="hero-stat-label">Training Images</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">~88%</span><span class="hero-stat-label">Accuracy</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">3</span><span class="hero-stat-label">Crop Types</span></div>
+    <div class="hero-stat"><span class="hero-stat-value">4</span><span class="hero-stat-label">CNN Layers</span></div>
   </div>
 </div>
 """, unsafe_allow_html=True)
